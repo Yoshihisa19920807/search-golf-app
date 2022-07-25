@@ -36,23 +36,24 @@ const Home = () => {
   registerLocale('ja', ja);
   // voidは何も返す値がないことを表す返り値
   const onFormSubmit = async (event: { preventDefault: () => void; }) => {
-    setLoading(true);
     // await sleep(1000);
     // await setTimeout(()=>{console.log("timeout")}, 10000);
     try {
-    // <form>タグを使うと、ボタンを押した際にデフォルトでonSubmitイベントが走ります。今回は、onSubmitイベントが走ったら、自分で作ったonFormSubmit関数を実行したいため、こちらの記述でデフォルトのsubmit処理をキャンセルしています。参考：https://developer.mozilla.org/ja/docs/Web/API/Event/preventDefault
-    event.preventDefault();
-    // const response = await axios.get('http://localhost:3001/comments/1', {
-    const response = await axios.get('https://l1kwik11ne.execute-api.ap-northeast-1.amazonaws.com/production/golf-courses', {
-      params: { date: addDays(date, 14), budget: budget, departure: departure, duration: duration }
-    });
+      setLoading(true);
+      debugger;
+      // <form>タグを使うと、ボタンを押した際にデフォルトでonSubmitイベントが走ります。今回は、onSubmitイベントが走ったら、自分で作ったonFormSubmit関数を実行したいため、こちらの記述でデフォルトのsubmit処理をキャンセルしています。参考：https://developer.mozilla.org/ja/docs/Web/API/Event/preventDefault
+      event.preventDefault();
+      // const response = await axios.get('http://localhost:3001/comments/1', {
+      const response = await axios.get('https://l1kwik11ne.execute-api.ap-northeast-1.amazonaws.com/production/golf-courses', {
+        params: { date: addDays(date, 14), budget: budget, departure: departure, duration: duration }
+      });
 
-    console.log(addDays(date, 14), budget, departure, duration)
-    console.log(response);
-    setPlans(response.data.plans);
-    setPlanCount(0);
-    setLoading(false);
-    // setPlanCount(response.data.count);
+      console.log(addDays(date, 14), budget, departure, duration)
+      console.log(response);
+      setPlans(response.data.plans);
+      setPlanCount(0);
+      setLoading(false);
+      // setPlanCount(response.data.count);
     } catch (e) {
       console.log(e);
       setHasError(true);
@@ -130,7 +131,9 @@ const Home = () => {
             </button>
           </div>
         </form>
-        <Loading loading={loading} />
+        <Loading
+          loading={loading}
+        />
         <Result
           plans={plans}
           planCount={planCount}

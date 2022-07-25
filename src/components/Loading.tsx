@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  loading: boolean;
+    loading: boolean;
 }
 
 const Loading: React.FC<Props> = ({ loading }) => {
@@ -18,7 +18,7 @@ const Loading: React.FC<Props> = ({ loading }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Loading;
