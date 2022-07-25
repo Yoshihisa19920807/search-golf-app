@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+gem 'aws-record', '~> 2.0'
+gem 'rakuten_web_service' 
+gem 'google_maps_service'

@@ -1,0 +1,39 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aws-eventstream (1.2.0)
+    aws-partitions (1.610.0)
+    aws-record (2.7.0)
+      aws-sdk-dynamodb (~> 1.18)
+    aws-sdk-core (3.131.3)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.525.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-dynamodb (1.75.0)
+      aws-sdk-core (~> 3, >= 3.127.0)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.5.1)
+      aws-eventstream (~> 1, >= 1.0.2)
+    google_maps_service (0.4.2)
+      hurley (~> 0.1)
+      multi_json (~> 1.11)
+      retriable (~> 2.0)
+    hurley (0.2)
+    jmespath (1.6.1)
+    json (2.6.2)
+    multi_json (1.15.0)
+    rakuten_web_service (1.13.1)
+      json (~> 2.3)
+    retriable (2.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-record (~> 2.0)
+  google_maps_service
+  rakuten_web_service
+
+BUNDLED WITH
+   2.1.2
