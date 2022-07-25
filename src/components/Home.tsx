@@ -6,6 +6,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import ja from 'date-fns/locale/ja';
 import axios from 'axios';
 import addDays from 'date-fns/addDays';
+import format from 'date-fns/format';
 
 import Result from './Result';
 import Loading from './Loading';
@@ -44,13 +45,13 @@ const Home = () => {
       event.preventDefault();
       // const response = await axios.get('http://localhost:3001/comments/1', {
       const response = await axios.get('https://vv9su37u8c.execute-api.ap-northeast-1.amazonaws.com/production/golf-courses', {
-        params: { date: addDays(date, 14), budget: budget, departure: departure, duration: duration }
+        params: { date: format(addDays(date, 14), 'yyyyMMdd'), budget: budget, departure: departure, duration: duration }
       });
 
       console.log(addDays(date, 14), budget, departure, duration)
       console.log(response);
       setPlans(response.data.plans);
-      setPlanCount(0);
+      setPlanCount(response.data.count);
       setLoading(false);
       // setPlanCount(response.data.count);
     } catch (e) {
